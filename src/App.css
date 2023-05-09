@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;400;700&family=Montserrat:wght@200;400;600&family=Noto+Sans+JP:wght@200;400&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: #EDECE3;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h5, h6, p, a {
+ font-family: 'Karla', sans-serif;
+}
+
+#navbar {
+  background-color: #2B5C62;
+}
+
+.yellowButton {
+  background-color: #EDB544 !important; 
+  border: none !important;
+}
+
+.yellowButton:hover, .greenButton:hover{
+  background-color: #F29E7D !important;
+}
+
+.bgColor {
+  background-color: #EDECE3;
+}
+
+.bigTitle {
+  letter-spacing: 5px;
+  line-height: 0px;
+  position: relative;
+}
+
+.bg-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/assets/pattern.png");
+  background-repeat: no-repeat;
+  padding: 0 !important;
+  scale: 2;
+  rotate: -10deg;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.decoration {
+  position: absolute;
+  width: 150px;
+  background-image: url("/public/assets/decorationTitle.svg");
+  top: -80px;
+  left: -80px;
+}
+
+.description {
+  background-color: white;
+}
+
+.greenButton {
+  background-color: #2B5C62 !important;
+  border: none !important;
+  width: 250px !important;
+  padding: 0.5em 1em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none !important;
+  color: white !important;
+  font-weight: 700;
+}
+
+.footer {
+  background-color: #2B5C62;
+}
+
+.socialIcons {
+  font-size: 1.5em;
+  margin: 0 10px;
+  color: #EDECE3;
+}
+
+.socialIcons:hover {
+  color: #EDB544;
+}
