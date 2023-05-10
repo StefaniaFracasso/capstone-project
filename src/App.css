@@ -1,38 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;400;700&family=Montserrat:wght@200;400;600&family=Noto+Sans+JP:wght@200;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;400;700&family=Montserrat:wght@200;400;600&family=Noto+Sans+JP:wght@200;400&display=swap");
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 .App {
-  background-color: #EDECE3;
+  background-color: #edece3;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Montserrat", sans-serif;
 }
 
-h5, h6, p, a {
- font-family: 'Karla', sans-serif;
+h5,
+h6,
+p,
+a {
+  font-family: "Karla", sans-serif;
 }
 
 #navbar {
-  background-color: #2B5C62;
+  background-color: #2b5c62;
 }
 
 .yellowButton {
-  background-color: #EDB544 !important; 
+  background-color: #edb544 !important;
   border: none !important;
+  padding: 0.5em;
 }
 
-.yellowButton:hover, .greenButton:hover{
-  background-color: #F29E7D !important;
+.yellowButton:hover,
+.greenButton:hover {
+  background-color: #f29e7d !important;
 }
 
 .bgColor {
-  background-color: #EDECE3;
+  background-color: #edece3;
 }
 
 .bigTitle {
@@ -68,7 +77,7 @@ h5, h6, p, a {
 }
 
 .greenButton {
-  background-color: #2B5C62 !important;
+  background-color: #2b5c62 !important;
   border: none !important;
   width: 250px !important;
   padding: 0.5em 1em;
@@ -83,15 +92,59 @@ a {
 }
 
 .footer {
-  background-color: #2B5C62;
+  background-color: #2b5c62;
 }
 
 .socialIcons {
   font-size: 1.5em;
   margin: 0 10px;
-  color: #EDECE3;
+  color: #edece3;
 }
 
 .socialIcons:hover {
-  color: #EDB544;
+  color: #edb544;
+}
+
+.levelContainer {
+  background-color: #2b5c62;
+  height: 100vh;
+}
+
+.sidebar-menu-nav {
+  padding: 10px;
+}
+
+.levelName {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.levelIcon {
+  font-size: 16px;
+}
+
+.flashCard {
+  width: 250px;
+  height: 500px;
+}
+
+/* sidebar */
+
+.sidebar-menu-header h2 {
+  font-size: 24px;
+  font-weight: 800px;
+  color: #edb544;
+  margin-top: 1em;
+}
+
+.sidebar-menu-sub-toggle {
+  background: none;
+  border: 0;
+  margin-bottom: 0.25rem;
+  color: hsla(0, 0%, 100%, 0.55);
+}
+
+.sidebar-menu-nav-link:hover{
+  padding: 0.8em;
+  background-color: rgb(242, 158, 125, 0.55);
 }

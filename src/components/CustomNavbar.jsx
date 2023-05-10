@@ -16,7 +16,7 @@ const CustomNavbar = () => {
               Blog
             </Nav.Link>
           </Nav>
-            <Button variant="primary" className="yellowButton rounded-pill">Start Learning</Button>
+            <Link to={'/learnjapanese'} type="button" className="yellowButton rounded-pill">Start Learning</Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
