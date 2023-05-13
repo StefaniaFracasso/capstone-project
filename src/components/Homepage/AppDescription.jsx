@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const AppDescription = () => {
   return (
-    <Container className="description">
+    <Container fluid className="description px-5 py-3">
       <Row>
         <h2 className="text-center">Why using PeraPera?</h2>
         <Col

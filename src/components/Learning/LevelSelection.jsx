@@ -16,7 +16,7 @@ const LevelSelection = ({ gradeSelect }) => {
   };
   return (
     <SidebarMenu>
-      <SidebarMenuHeader className="mb-4">
+      <SidebarMenuHeader className="mb-4 fw-bold">
         <h2>LEVEL SELECTION</h2>
       </SidebarMenuHeader>
       <SidebarMenuBody>

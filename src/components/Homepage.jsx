@@ -9,7 +9,12 @@ const Homepage = () => {
       <Row>
         <Col xs={12} className="p-0">
           <Jumbotron />
+
+        </Col>
+        <Col xs={12} className="p-0">
           <AppDescription />
+        </Col>
+        <Col xs={12} className="p-0">
           <BlogSection/>
         </Col>
       </Row>

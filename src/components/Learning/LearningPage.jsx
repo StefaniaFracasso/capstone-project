@@ -11,12 +11,10 @@ const LearningPage = () => {
     }
 
     return (
-        <Container fluid>
-            <Row>
-                <Col xs={12} md={4} lg={2} className="levelContainer">
+        <Container fluid className="levelContainer">
+            <Row className="d-flex justify-content-around h-100">
+                <Col xs={12} md={8} lg={10} className="d-flex flex-column align-items-center">
                     <LevelSelection gradeSelect={handleGradeSelection}/>
-                </Col>
-                <Col xs={12} md={8} lg={10} className="d-flex align-items-center justify-content-center">
                     <FlashCard selectedGrade={selectedGrade}/>
                 </Col>
             </Row>

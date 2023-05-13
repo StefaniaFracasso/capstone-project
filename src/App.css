@@ -106,7 +106,6 @@ a {
 }
 
 .levelContainer {
-  background-color: #2b5c62;
   height: 100vh;
 }
 
@@ -117,10 +116,14 @@ a {
 .levelName {
   font-weight: bold;
   font-size: 14px;
+  color: rgb(76, 76, 76);
+
 }
 
 .levelIcon {
   font-size: 16px;
+  color: rgb(76, 76, 76);
+
 }
 
 .flashCard {
@@ -141,10 +144,23 @@ a {
   background: none;
   border: 0;
   margin-bottom: 0.25rem;
-  color: hsla(0, 0%, 100%, 0.55);
+  color: hsla(0, 6%, 3%);
+}
+
+.sidebar-menu-nav-link{
+  color: black;
+  text-align: start;
 }
 
 .sidebar-menu-nav-link:hover{
   padding: 0.8em;
   background-color: rgb(242, 158, 125, 0.55);
+}
+
+/* kanji details */
+
+.detailsSmallContainer {
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: white;
 }
