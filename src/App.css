@@ -164,3 +164,39 @@ a {
   border-radius: 10px;
   background-color: white;
 }
+
+
+/* search results */
+
+.searchResultsContainer {
+  height: 100vh;
+}
+
+.foundKanji {
+  font-size: 24px;
+  color: black !important;
+  font-weight: 400;
+}
+
+.foundKanji:hover {
+  color: #2b5c62;
+}
+
+/* single article */
+
+.singleArticle {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.singleArticle a {
+  color: #2b5c62 !important;
+}
+
+@media screen and (max-width: 700px) {
+  .singleArticle img {
+    max-width: 70%;
+    height: auto;
+  }
+  
+}

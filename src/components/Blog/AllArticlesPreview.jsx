@@ -33,12 +33,17 @@ const AllArticlesPreview = () => {
     }
   };
 
+  const getArticleId = (guid) => {
+    const idStartIndex = guid.lastIndexOf('=') + 1;
+    return guid.substring(idStartIndex);
+  };
+
   return (
     <Container className="bgColor my-4 pt-5">
       <h2 className="text-center mb-5">News from all around Japan</h2>
       <Row>
         {articles.map((article, index) => (
-          <Col md={4} className="mb-4" key={article.guid}>
+          <Col md={4} className="mb-4" key={getArticleId(article.guid)}>
             <Card className="h-100">
               <Card.Img
                 variant="top"
@@ -55,7 +60,7 @@ const AllArticlesPreview = () => {
               </Card.Body>
               <Card.Footer className="text-center">
                 <Link
-                  to={`/blog/${index}`}
+                  to={`/blog/${getArticleId(article.guid)}`}
                   className="greenButton rounded-pill fw-bold mt-3"
                 >
                   Read more

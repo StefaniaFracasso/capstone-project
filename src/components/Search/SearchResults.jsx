@@ -33,7 +33,7 @@ const SearchResults = () => {
   }, [query]);
 
   return (
-    <Container>
+    <Container className="searchResultsContainer">
       <Row>
         <Col xs={12}>
           <FoundKanji foundKanji={foundKanji} />

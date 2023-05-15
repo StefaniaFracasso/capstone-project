@@ -9,6 +9,11 @@ import LearningPage from './components/Learning/LearningPage';
 import SearchResults from './components/Search/SearchResults';
 import KanjiDetails from './components/Learning/KanjiDetails';
 
+const getArticleIdFromGuid = (guid) => {
+  const startIndex = guid.lastIndexOf("=") + 1;
+  return guid.substring(startIndex);
+};
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,8 +21,8 @@ function App() {
       <CustomNavbar/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
-        <Route path='/blog' element={<AllArticlesPreview/>}/>
-        <Route path='/blog/:id' element={<SingleArticle/>}/>
+        <Route path='/blog' element={<AllArticlesPreview getArticleId={getArticleIdFromGuid}/>}/>
+        <Route path='/blog/:articleId' element={<SingleArticle getArticleId={getArticleIdFromGuid}/>}/>
         <Route path='/learnjapanese' element={<LearningPage/>}/>
         <Route path='/results/:query' element={<SearchResults/>}/>
         <Route path='/kanji/:kanjiChar' element={<KanjiDetails/>}/>

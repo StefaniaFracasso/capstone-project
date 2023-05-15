@@ -1,14 +1,55 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import { SpinnerDotted } from "spinners-react";
 
 const RSS2JSON_API = "https://api.rss2json.com/v1/api.json";
 const RSS_FEED_URL = "https://soranews24.com/feed/";
 const API_KEY = "nzsiatgtevh6seb1fbnggjwwm9plrs2ggjbvzghe";
 
-const SingleArticle = () => {
-return (
-    <h1>ciao</h1>
-)
+const SingleArticle = ({getArticleId}) => {
+  const { articleId } = useParams();
+  const [article, setArticle] = useState(null);
+
+  const fetchArticle = async (id) => {
+    try {
+      const response = await fetch(
+        `${RSS2JSON_API}?rss_url=${RSS_FEED_URL}&api_key=${API_KEY}`
+      );
+      const data = await response.json();
+      const articles = data.items;
+      const foundArticle = articles.find((article) => getArticleId(article.guid) === id);
+
+      setArticle(foundArticle);
+      console.log('Found article',foundArticle)
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchArticle(articleId);
+  }, [articleId]);
+
+  if (!article) {
+    return <div>
+      <SpinnerDotted size={90} thickness={100} speed={100} color="rgba(43, 92, 98, 1)" />
+    </div>;
+  }
+
+  return (
+    <Container>
+      <h2 className="my-3">{article.title}</h2>
+      <div className="singleArticle" dangerouslySetInnerHTML={{ __html: article.content }}/>
+      <Link
+                  to={`/blog`}
+                  className="greenButton rounded-pill fw-bold"
+                >
+                  Back to Blog
+                </Link>
+    </Container>
+  );
 };
 
 export default SingleArticle;
