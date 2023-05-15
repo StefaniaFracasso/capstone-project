@@ -51,18 +51,20 @@ const KanjiDetails = () => {
       <Row>
         <Col xs={1} md={2}></Col>
         <Col>
-      <Row className="d-flex justify-content-between">
+      <Row>
         <Col
           xs={12}
           md={4}
           lg={4}
-          className="detailsSmallContainer d-flex flex-column align-items-center justify-content-center"
+          className="p-1"
         >
+          <div className="detailsSmallContainer h-100 d-flex flex-column align-items-center">
           <p className="display-1">{kanjiDetails?.ka_utf}</p>
-          <ReactPlayer url={kanjiDetails.kanji?.video?.mp4} width={"200px"} playing={"true"} loop={"true"}/>
-
+          <ReactPlayer url={kanjiDetails.kanji?.video?.mp4} width={"120px"} height={"120px"}playing={"true"} loop={"true"}/>
+          </div>
         </Col>
-        <Col xs={12} md={4} lg={4} className="detailsSmallContainer">
+        <Col xs={12} md={4} lg={4} className="p-1">
+          <div className="detailsSmallContainer h-100 px-2">
           <h5 className="fw-bold">Grade</h5>
           <p>{kanjiDetails?.grade}</p>
           <h5 className="fw-bold">Meaning</h5>
@@ -71,11 +73,15 @@ const KanjiDetails = () => {
           <p>{kanjiDetails?.kunyomi_ja}</p>
           <h5 className="fw-bold">Onyomi</h5>
           <p>{kanjiDetails?.onyomi_ja}</p>
+          </div>
         </Col>
-        <Col xs={12} md={4} lg={4} className="detailsSmallContainer">
+        <Col xs={12} md={4} lg={4} className="p-1">
+        <div className="detailsSmallContainer h-100 px-2">
+          
+
           <h5 className="fw-bold">Examples</h5>
           {kanjiDetails.examples && kanjiDetails.examples.length > 0 ? (
-            kanjiDetails.examples.slice(0, 5).map((example) => {
+            kanjiDetails.examples.slice(0, 3).map((example) => {
               return (
                 <>
                   <p>{example.japanese}</p>
@@ -86,10 +92,13 @@ const KanjiDetails = () => {
           ) : (
             <p>No examples available.</p>
           )}
+          </div>
         </Col>
       </Row>
       <Row className="d-flex justify-content-around">
-        <Col xs={12} md={6} className="detailsSmallContainer">
+        <Col xs={12} md={6} className="p-1">
+          <div className="detailsSmallContainer h-100 px-2">
+          
           <h5 className="fw-bold">Strokes order</h5>
           {kanjiDetails.kanji?.strokes?.images ? (
             kanjiDetails.kanji.strokes.images.map((image) => {
@@ -102,8 +111,11 @@ const KanjiDetails = () => {
           ) : (
             <p>No stroke order available.</p>
           )}
+          </div>
         </Col>
-        <Col xs={12} md={6} className="detailsSmallContainer">
+        <Col xs={12} md={6} className="p-1">
+        <div className="detailsSmallContainer h-100 px-2">
+
           <h5 className="fw-bold">Radical</h5>
           {kanjiDetails.radical && kanjiDetails.radical.image ? (
             <>
@@ -118,6 +130,7 @@ const KanjiDetails = () => {
           ) : (
             <p>No radical information available.</p>
           )}
+          </div>
         </Col>
       </Row>
         

@@ -47,18 +47,20 @@ const SingleArticle = ({ getArticleId }) => {
   }
 
   return (
-    <>
+    <div className="mb-5">
       <Container>
-        <h2 className="my-3">{article.title}</h2>
+        <h2 className="my-3 text-center">{article.title}</h2>
         <div
           className="singleArticle"
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
       </Container>
+      <Container className="text-center">
         <Link to={`/blog`} className="greenButton rounded-pill fw-bold">
           Back to Blog
         </Link>
-    </>
+      </Container>
+    </div>
   );
 };
 

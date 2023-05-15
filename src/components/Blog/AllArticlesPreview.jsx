@@ -61,7 +61,7 @@ const AllArticlesPreview = () => {
               <Card.Footer className="text-center">
                 <Link
                   to={`/blog/${getArticleId(article.guid)}`}
-                  className="greenButton rounded-pill fw-bold mt-3"
+                  className="greenButton rounded-pill fw-bold"
                 >
                   Read more
                 </Link>

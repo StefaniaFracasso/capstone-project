@@ -94,6 +94,7 @@ a {
 
 .footer {
   background-color: #2b5c62;
+  width: 100%;
 }
 
 .socialIcons {
@@ -106,9 +107,9 @@ a {
   color: #edb544;
 }
 
-/* .levelContainer {
+.levelContainer {
   height: 100vh;
-} */
+}
 
 .sidebar-menu-nav {
   padding: 10px;
@@ -161,7 +162,7 @@ a {
 /* kanji details */
 
 .detailsSmallContainer {
-  border: 1px solid grey;
+  border: 1px solid rgba(176, 176, 176, 0.5);
   border-radius: 10px;
   background-color: white;
   padding-top: 1em;
@@ -170,9 +171,10 @@ a {
 
 /* search results */
 
-/* .searchResultsContainer {
+.searchResultsContainer {
   height: 100vh;
-} */
+text-align: center;
+}
 
 .foundKanji {
   font-size: 24px;
@@ -200,5 +202,11 @@ a {
     max-width: 70%;
     height: auto;
   }
-  
 }
+
+.card-footer {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  border-top: none !important;
+}
+

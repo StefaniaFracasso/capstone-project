@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 const FoundKanji = ({ foundKanji }) => {
   return (
     <Container className="mt-3">
-      <h3 className="text-center">What we found</h3>
       {foundKanji.length > 0 && foundKanji ? (
       <Row className="d-flex mt-5 justify-content-center">
         {foundKanji.map((kanji) => (
-          <Col>
+          <Col key={kanji.kanji._id}
+          >
           <Link
             to={`/kanji/${kanji.kanji.character}`}
-            key={kanji.kanji._id}
-            className="foundKanji"
+            className="foundKanji display-4 border border-2"
           >
             {kanji.kanji.character}
           </Link>

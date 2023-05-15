@@ -33,7 +33,7 @@ const CustomNavbar = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Link to={`/results/${query}`} className="btn btn-outline-warning">
+              <Link onClick={handleSubmit} className="btn btn-outline-warning">
                 Search
               </Link>
             </Form>

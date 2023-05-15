@@ -75,12 +75,11 @@ const FlashCard = ({selectedGrade}) => {
                 <Card
                   key={kanji._id}
                   style={{ width: "250px", height: "300px" }}
-                  onClick={handleFlip}
                 >
                   <Card.Header className="h6">Level {kanji.grade} </Card.Header>
                   <Card.Body>
                     <Container>
-                      <Row className="d-flex flex-column justify-content-center align-items-center">
+                      <Row className="d-flex flex-column justify-content-center align-items-center"  onClick={handleFlip}>
                         <Col>
                           <h2 className="display-1 text-center">
                             {kanji.kanji.character}
@@ -98,6 +97,8 @@ const FlashCard = ({selectedGrade}) => {
                             {kanji.kanji.onyomi.katakana}
                           </h6>
                         </Col>
+                      </Row>
+                      <Row>
                         <Col>
                           <i className="bi bi-heart text-end"></i>
                         </Col>
