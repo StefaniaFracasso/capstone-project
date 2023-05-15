@@ -41,7 +41,7 @@ const SingleArticle = ({getArticleId}) => {
   return (
     <Container>
       <h2 className="my-3">{article.title}</h2>
-      <div className="singleArticle" dangerouslySetInnerHTML={{ __html: article.content }}/>
+      <div className="singleArticle bg-light" dangerouslySetInnerHTML={{ __html: article.content }}/>
       <Link
                   to={`/blog`}
                   className="greenButton rounded-pill fw-bold"

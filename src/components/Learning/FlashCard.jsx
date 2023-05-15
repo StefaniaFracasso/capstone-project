@@ -7,7 +7,6 @@ const FlashCard = ({selectedGrade}) => {
   const API_KEY = "28ff1f0abfmshb76c2038e44651cp10501djsn60f00a062f0b";
   const URL = "https://kanjialive-api.p.rapidapi.com/api/public/kanji/all";
   const MAX_CARDS = 21;
-  // const GRADE = 1;
   const [kanjiData, setKanjiData] = useState();
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -68,7 +67,7 @@ const FlashCard = ({selectedGrade}) => {
       {cardsToRender
         .slice(currentCardIndex, currentCardIndex + 1)
         .map((kanji) => {
-          console.log("kanji", kanji);
+          // console.log("kanji", kanji);
           return (
             <>
               <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">

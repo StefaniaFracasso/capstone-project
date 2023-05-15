@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100vh !important;
 }
 
 .App {
@@ -105,9 +106,9 @@ a {
   color: #edb544;
 }
 
-.levelContainer {
+/* .levelContainer {
   height: 100vh;
-}
+} */
 
 .sidebar-menu-nav {
   padding: 10px;
@@ -163,14 +164,15 @@ a {
   border: 1px solid grey;
   border-radius: 10px;
   background-color: white;
+  padding-top: 1em;
 }
 
 
 /* search results */
 
-.searchResultsContainer {
+/* .searchResultsContainer {
   height: 100vh;
-}
+} */
 
 .foundKanji {
   font-size: 24px;
