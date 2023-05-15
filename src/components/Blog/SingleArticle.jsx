@@ -7,7 +7,7 @@ const RSS2JSON_API = "https://api.rss2json.com/v1/api.json";
 const RSS_FEED_URL = "https://soranews24.com/feed/";
 const API_KEY = "nzsiatgtevh6seb1fbnggjwwm9plrs2ggjbvzghe";
 
-const SingleArticle = ({getArticleId}) => {
+const SingleArticle = ({ getArticleId }) => {
   const { articleId } = useParams();
   const [article, setArticle] = useState(null);
 
@@ -18,11 +18,12 @@ const SingleArticle = ({getArticleId}) => {
       );
       const data = await response.json();
       const articles = data.items;
-      const foundArticle = articles.find((article) => getArticleId(article.guid) === id);
+      const foundArticle = articles.find(
+        (article) => getArticleId(article.guid) === id
+      );
 
       setArticle(foundArticle);
-      console.log('Found article',foundArticle)
-
+      console.log("Found article", foundArticle);
     } catch (error) {
       console.error(error);
     }
@@ -33,22 +34,31 @@ const SingleArticle = ({getArticleId}) => {
   }, [articleId]);
 
   if (!article) {
-    return <div>
-      <SpinnerDotted size={90} thickness={100} speed={100} color="rgba(43, 92, 98, 1)" />
-    </div>;
+    return (
+      <div>
+        <SpinnerDotted
+          size={90}
+          thickness={100}
+          speed={100}
+          color="rgba(43, 92, 98, 1)"
+        />
+      </div>
+    );
   }
 
   return (
-    <Container>
-      <h2 className="my-3">{article.title}</h2>
-      <div className="singleArticle bg-light" dangerouslySetInnerHTML={{ __html: article.content }}/>
-      <Link
-                  to={`/blog`}
-                  className="greenButton rounded-pill fw-bold"
-                >
-                  Back to Blog
-                </Link>
-    </Container>
+    <>
+      <Container>
+        <h2 className="my-3">{article.title}</h2>
+        <div
+          className="singleArticle"
+          dangerouslySetInnerHTML={{ __html: article.content }}
+        />
+      </Container>
+        <Link to={`/blog`} className="greenButton rounded-pill fw-bold">
+          Back to Blog
+        </Link>
+    </>
   );
 };
 

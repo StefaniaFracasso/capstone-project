@@ -49,7 +49,7 @@ const KanjiDetails = () => {
   return (
     <Container className="detailsBigContainer my-5">
       <Row>
-        <Col className="d-xs-none" md={2}></Col>
+        <Col xs={1} md={2}></Col>
         <Col>
       <Row className="d-flex justify-content-between">
         <Col
@@ -122,7 +122,7 @@ const KanjiDetails = () => {
       </Row>
         
         </Col>
-        <Col className="d-xs-none" md={2}></Col>
+        <Col xs={1} md={2}></Col>
       </Row>
     </Container>
   );
