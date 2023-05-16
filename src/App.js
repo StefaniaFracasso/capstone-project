@@ -23,7 +23,7 @@ function App() {
         <Route path='/' element={<Homepage/>}/>
         <Route path='/blog' element={<AllArticlesPreview getArticleId={getArticleIdFromGuid}/>}/>
         <Route path='/blog/:articleId' element={<SingleArticle getArticleId={getArticleIdFromGuid}/>}/>
-        <Route path='/learnjapanese' element={<LearningPage/>}/>
+        <Route path='/learnjapanese/:grade' element={<LearningPage/>}/>
         <Route path='/results/:query' element={<SearchResults/>}/>
         <Route path='/kanji/:kanjiChar' element={<KanjiDetails/>}/>
       </Routes>

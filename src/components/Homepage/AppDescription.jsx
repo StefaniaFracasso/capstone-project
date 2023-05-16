@@ -2,7 +2,10 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const AppDescription = () => {
   return (
-    <Container fluid className="description px-5 py-3">
+    <Container fluid className="description py-3 d-flex">
+      <Col xs={1} md={2}>
+      </Col>
+      <Col xs={10} md={8}>
       <Row>
         <h2 className="text-center">Why using PeraPera?</h2>
         <Col
@@ -18,13 +21,13 @@ const AppDescription = () => {
           </p>
           <p>
             Flashcards are <strong>small cards</strong> on which to write the
-            question on one side and the answer on the other. <em>Easy, no?</em>{" "}
+            question on one side and the answer on the other. <em>Easy, no? </em>
             In addition, you can also express the question in an unconventional
             way, that is, with visual, numerical or symbolic reminders.
           </p>
           <p className="mb-0">
-            The basic idea behind this method is{" "}
-            <strong>the principle of repetition</strong>: through a "question
+            The basic idea behind this method is 
+            <strong> the principle of repetition</strong>: through a "question
             and answer" mechanism, your brain strives and applies active
             memorization. It is a method that involves our self-monitoring
             processes and the ability to self-correct if we get the answer
@@ -60,16 +63,19 @@ const AppDescription = () => {
           </p>
           <p>
             Don't worry if you still don't feel confident! You can go back and
-            study the kanji of individual levels{" "}
-            <strong>as many times as you want!</strong>
+            study the kanji of individual levels
+            <strong> as many times as you want!</strong>
           </p>
           <p>
-            And if you need to look up a particular kanji, the{" "}
-            <strong>search function</strong> is what you need: you can search by
+            And if you need to look up a particular kanji, the
+            <strong> search function</strong> is what you need: you can search by
             meaning, reading, or directly by writing in Japanese.
           </p>
         </Col>
       </Row>
+      </Col>
+      <Col xs={1} md={2}>
+      </Col>
     </Container>
   );
 };

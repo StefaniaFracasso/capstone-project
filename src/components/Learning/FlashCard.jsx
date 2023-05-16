@@ -1,27 +1,57 @@
 import { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
-import { SpinnerDotted } from 'spinners-react';
+import { useDispatch } from "react-redux";
+import { SpinnerDotted } from "spinners-react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-const FlashCard = ({selectedGrade}) => {
+const FlashCard = ({ selectedGrade }) => {
+
   const API_KEY = "28ff1f0abfmshb76c2038e44651cp10501djsn60f00a062f0b";
   const URL = "https://kanjialive-api.p.rapidapi.com/api/public/kanji/all";
   const MAX_CARDS = 21;
+
   const [kanjiData, setKanjiData] = useState();
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [cardsToRender, setCardsToRender] = useState([]);
   const [filteredKanjiData, setFilteredKanjiData] = useState([]);
+  const [clicked, setClicked] = useState(false);
+  const dispatch = useDispatch();
+  const currentKanji = cardsToRender[currentCardIndex];
 
+  const iconStyle = {
+    fontSize: "20px",
+  };
+
+  // gestisce flip della card
   const handleFlip = (e) => {
     e.preventDefault();
     setIsFlipped(!isFlipped);
   };
 
+  // gestisce click per passare a card successiva
   const handleNextCardClick = () => {
     setCurrentCardIndex(currentCardIndex + 1);
   };
 
+  // gestisce click su icona cuore per aggiunta ai preferiti
+  const handleClick = () => {
+    if (clicked) {
+      dispatch({
+        type: "REMOVE_FAVORITE",
+        payload: currentKanji._id,
+      });
+    } else {
+      dispatch({
+        type: "ADD_FAVORITE",
+        payload: currentKanji,
+      });
+    }
+    setClicked(!clicked);
+  };
+
+  // fetch per recupero dati
   const getKanjiData = async () => {
     try {
       const response = await fetch(URL, {
@@ -41,13 +71,19 @@ const FlashCard = ({selectedGrade}) => {
     getKanjiData();
   }, []);
 
+  // partendo dall'array iniziale di 1400 elementi, filtra i kanji in base al grado
   useEffect(() => {
     if (kanjiData) {
-      const filteredData = kanjiData.filter((kanji) => kanji.grade === selectedGrade);
+      const filteredData = kanjiData.filter(
+        (kanji) => kanji.grade == selectedGrade
+      );
       setFilteredKanjiData(filteredData);
+      console.log("grade", selectedGrade);
+      console.log("data", filteredData);
     }
   }, [kanjiData, selectedGrade]);
 
+  // partendo dai kanji filtrati in base al dato, fa uno slice per visualizzarne solo 20
   useEffect(() => {
     if (filteredKanjiData) {
       setCardsToRender(filteredKanjiData.slice(0, MAX_CARDS));
@@ -55,15 +91,21 @@ const FlashCard = ({selectedGrade}) => {
   }, [filteredKanjiData]);
 
   if (!kanjiData) {
-    return <div>
-      <SpinnerDotted size={90} thickness={100} speed={100} color="rgba(43, 92, 98, 1)" />
-    </div>;
+    return (
+      <div>
+        <SpinnerDotted
+          size={90}
+          thickness={100}
+          speed={100}
+          color="rgba(43, 92, 98, 1)"
+          className="mt-5"
+        />
+      </div>
+    );
   }
 
   return (
-    <div>
-    {!selectedGrade ? (<h3>Choose a level to begin!</h3>): (
-    <div className="d-flex flex-column justify-content-center">
+    <div className="d-flex flex-column justify-content-center mt-5">
       {cardsToRender
         .slice(currentCardIndex, currentCardIndex + 1)
         .map((kanji) => {
@@ -79,7 +121,10 @@ const FlashCard = ({selectedGrade}) => {
                   <Card.Header className="h6">Level {kanji.grade} </Card.Header>
                   <Card.Body>
                     <Container>
-                      <Row className="d-flex flex-column justify-content-center align-items-center"  onClick={handleFlip}>
+                      <Row
+                        className="d-flex flex-column justify-content-center align-items-center"
+                        onClick={handleFlip}
+                      >
                         <Col>
                           <h2 className="display-1 text-center">
                             {kanji.kanji.character}
@@ -100,7 +145,13 @@ const FlashCard = ({selectedGrade}) => {
                       </Row>
                       <Row>
                         <Col>
-                          <i className="bi bi-heart text-end"></i>
+                          <div onClick={handleClick}>
+                            {clicked ? (
+                              <AiFillHeart style={iconStyle} color="red" />
+                            ) : (
+                              <AiOutlineHeart style={iconStyle} />
+                            )}
+                          </div>
                         </Col>
                       </Row>
                     </Container>
@@ -124,8 +175,10 @@ const FlashCard = ({selectedGrade}) => {
                   </Card.Body>
                 </Card>
               </ReactCardFlip>
-              <Button className="greenButton mt-3 w-50" onClick={handleNextCardClick}>
-                {" "}
+              <Button
+                className="greenButton mt-3 w-50"
+                onClick={handleNextCardClick}
+              >
                 {currentCardIndex === cardsToRender.length - 1
                   ? "Finish"
                   : "Next Card"}
@@ -133,8 +186,6 @@ const FlashCard = ({selectedGrade}) => {
             </>
           );
         })}
-    </div>
-    )}
     </div>
   );
 };

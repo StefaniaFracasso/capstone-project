@@ -49,7 +49,7 @@ const SingleArticle = ({ getArticleId }) => {
   return (
     <div className="mb-5">
       <Container>
-        <h2 className="my-3 text-center">{article.title}</h2>
+        <h2 className="my-4 pt-3 text-center">{article.title}</h2>
         <div
           className="singleArticle"
           dangerouslySetInnerHTML={{ __html: article.content }}

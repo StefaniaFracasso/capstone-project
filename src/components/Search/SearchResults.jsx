@@ -37,7 +37,7 @@ const SearchResults = () => {
       <Row className="d-flex justify-content-center">
         <Col xs={1} md={2}></Col>
         <Col xs={10} md={8}>
-        <h3 className="text-center mt-3">What we found for <em>{query}</em>: </h3>
+        <h3 className="text-center my-4 pt-3">What we found for <em>{query}</em>: </h3>
           <FoundKanji foundKanji={foundKanji} />
         </Col>
         <Col xs={1} md={2}></Col>

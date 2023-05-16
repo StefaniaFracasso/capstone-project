@@ -39,7 +39,7 @@ const AllArticlesPreview = () => {
   };
 
   return (
-    <Container className="bgColor my-4 pt-5">
+    <Container className="bgColor my-4 pt-3">
       <h2 className="text-center mb-5">News from all around Japan</h2>
       <Row>
         {articles.map((article, index) => (
