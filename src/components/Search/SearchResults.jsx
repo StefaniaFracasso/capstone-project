@@ -6,6 +6,7 @@ import FoundKanji from "./FoundKanji";
 const SearchResults = () => {
   const [foundKanji, setFoundKanji] = useState([]);
   const { query } = useParams();
+  const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
     const SEARCH_URL = `https://kanjialive-api.p.rapidapi.com/api/public/search/${query}`;
@@ -20,7 +21,12 @@ const SearchResults = () => {
         });
         if (response.ok) {
           const data = await response.json();
-          setFoundKanji(data);
+          if(data.length > 0) {
+            setFoundKanji(data);
+            setNoResults(false);
+          }else {
+            setNoResults(true);
+          }
         } else {
           alert("error fetching results");
         }
@@ -38,7 +44,9 @@ const SearchResults = () => {
         <Col xs={1} md={2}></Col>
         <Col xs={10} md={8}>
         <h3 className="text-center my-4 pt-3">What we found for <em>{query}</em>: </h3>
+        {noResults ? (<p>No kanji found :(</p>) : (
           <FoundKanji foundKanji={foundKanji} />
+        )}
         </Col>
         <Col xs={1} md={2}></Col>
       </Row>

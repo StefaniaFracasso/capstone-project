@@ -1,6 +1,7 @@
-import { Button, Col, Container } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 
 const Jumbotron = () => {
+
   return (
     <div className="position-relative overflow-hidden">
       <div className="p-5 bgColor rounded-3">

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SpinnerDotted } from "spinners-react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
@@ -19,6 +19,7 @@ const FlashCard = ({ selectedGrade }) => {
   const [clicked, setClicked] = useState(false);
   const dispatch = useDispatch();
   const currentKanji = cardsToRender[currentCardIndex];
+  const favorites = useSelector((state)=>state.favorites)
 
   const iconStyle = {
     fontSize: "20px",
@@ -67,6 +68,7 @@ const FlashCard = ({ selectedGrade }) => {
     }
   };
 
+  // fa partire fetch
   useEffect(() => {
     getKanjiData();
   }, []);
@@ -89,6 +91,15 @@ const FlashCard = ({ selectedGrade }) => {
       setCardsToRender(filteredKanjiData.slice(0, MAX_CARDS));
     }
   }, [filteredKanjiData]);
+
+  useEffect(()=> {
+    setClicked(false);
+    if(favorites.length > 0 && currentKanji ) {
+      if(favorites.filter((kanji)=>kanji._id === currentKanji._id).length > 0) {
+        setClicked(true);
+      }
+    }
+  }, [currentCardIndex])
 
   if (!kanjiData) {
     return (
