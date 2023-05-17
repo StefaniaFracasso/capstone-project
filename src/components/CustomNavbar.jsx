@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { useSelector } from "react-redux";
 
 const CustomNavbar = ({ gradeSelect }) => {
   const [query, setQuery] = useState("");
+  const favorites = useSelector((state)=>state.favorites)
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -53,6 +55,11 @@ const CustomNavbar = ({ gradeSelect }) => {
             <Link to={"/blog"} className="mx-md-2 text-light nav-link">
               Blog
             </Link>
+            {favorites.length > 0 ? (
+                          <Link to={"/favorites"} className="mx-md-2 text-light nav-link">
+                          Favorites
+                        </Link>
+            ): null}
           </Nav>
           {/* <Link to={'/learnjapanese'} type="button" className="yellowButton rounded-pill">Start Learning</Link> */}
           <DropdownButton id="dropdown-item-button" title="Start learning" className="rounded-pill" variant="warning">

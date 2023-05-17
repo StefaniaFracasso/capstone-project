@@ -176,7 +176,7 @@ a {
 text-align: center;
 }
 
-#foundKanji {
+#foundKanji, #savedKanji {
   font-size: 40px;
   color: black !important;
   font-weight: 400;

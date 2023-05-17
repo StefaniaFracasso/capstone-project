@@ -8,6 +8,8 @@ import SingleArticle from './components/Blog/SingleArticle';
 import LearningPage from './components/Learning/LearningPage';
 import SearchResults from './components/Search/SearchResults';
 import KanjiDetails from './components/Learning/KanjiDetails';
+import Favorites from './components/Learning/Favorites';
+
 
 const getArticleIdFromGuid = (guid) => {
   const startIndex = guid.lastIndexOf("=") + 1;
@@ -26,6 +28,7 @@ function App() {
         <Route path='/learnjapanese/:grade' element={<LearningPage/>}/>
         <Route path='/results/:query' element={<SearchResults/>}/>
         <Route path='/kanji/:kanjiChar' element={<KanjiDetails/>}/>
+        <Route path='/favorites' element={<Favorites/>}/>
       </Routes>
       <Footer/>
     </div>
