@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const CustomNavbar = ({ gradeSelect }) => {
   const [query, setQuery] = useState("");
-  const favorites = useSelector((state)=>state.favorites)
+  const kanjiToBeReviewed = useSelector((state) => state.kanjiToBeReviewed);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -20,7 +20,6 @@ const CustomNavbar = ({ gradeSelect }) => {
 
   const handleGradeClick = (grade) => {
     window.location.href = `/learnjapanese/${grade}`;
-
   };
 
   return (
@@ -55,20 +54,37 @@ const CustomNavbar = ({ gradeSelect }) => {
             <Link to={"/blog"} className="mx-md-2 text-light nav-link">
               Blog
             </Link>
-            {favorites.length > 0 ? (
-                          <Link to={"/favorites"} className="mx-md-2 text-light nav-link">
-                          Favorites
-                        </Link>
-            ): null}
+            {kanjiToBeReviewed.length > 0 ? (
+              <Link to={"/review"} className="mx-md-2 text-light nav-link">
+                Review
+              </Link>
+            ) : null}
           </Nav>
           {/* <Link to={'/learnjapanese'} type="button" className="yellowButton rounded-pill">Start Learning</Link> */}
-          <DropdownButton id="dropdown-item-button" title="Start learning" className="rounded-pill" variant="warning">
-            <Dropdown.Header><em>Choose a level</em></Dropdown.Header>
-            <Dropdown.Item as="button" onClick={() => handleGradeClick(1)}>Novice low level</Dropdown.Item>
-            <Dropdown.Item as="button" onClick={() => handleGradeClick(2)}>Novice mid level</Dropdown.Item>
-            <Dropdown.Item as="button" onClick={() => handleGradeClick(3)}>Intermediate low level</Dropdown.Item>
-            <Dropdown.Item as="button" onClick={() => handleGradeClick(4)}>Intermediate mid level</Dropdown.Item>
-            <Dropdown.Item as="button" onClick={() => handleGradeClick(5)}>Advanced level</Dropdown.Item>
+          <DropdownButton
+            id="dropdown-item-button"
+            title="Start learning"
+            className="rounded-pill"
+            variant="warning"
+          >
+            <Dropdown.Header>
+              <em>Choose a level</em>
+            </Dropdown.Header>
+            <Dropdown.Item as="button" onClick={() => handleGradeClick(1)}>
+              Novice low level
+            </Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => handleGradeClick(2)}>
+              Novice mid level
+            </Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => handleGradeClick(3)}>
+              Intermediate low level
+            </Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => handleGradeClick(4)}>
+              Intermediate mid level
+            </Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => handleGradeClick(5)}>
+              Advanced level
+            </Dropdown.Item>
           </DropdownButton>
         </Navbar.Collapse>
       </Container>

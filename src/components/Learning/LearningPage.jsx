@@ -6,13 +6,14 @@ const LearningPage = () => {
     const { grade } = useParams();
 
     return (
-        <Container className="learningContainer">
-            <Row>
-                <Col xs={12} className="d-flex flex-column align-items-center">
-                    <FlashCard selectedGrade={grade}/>
-                </Col>
-            </Row>
-        </Container>
+        <FlashCard selectedGrade={grade}/>
+        // <Container className="learningContainer">
+        //     <Row>
+        //         <Col xs={12} className="d-flex flex-column align-items-center">
+        //             <FlashCard selectedGrade={grade}/>
+        //         </Col>
+        //     </Row>
+        // </Container>
     )
 }
 

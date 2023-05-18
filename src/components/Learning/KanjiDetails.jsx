@@ -81,10 +81,10 @@ const KanjiDetails = () => {
 
           <h5 className="fw-bold">Examples</h5>
           {kanjiDetails.examples && kanjiDetails.examples.length > 0 ? (
-            kanjiDetails.examples.slice(0, 3).map((example) => {
+            kanjiDetails.examples.slice(0, 4).map((example) => {
               return (
                 <>
-                  <p>{example.japanese}</p>
+                  <p className="mb-0">{example.japanese}</p>
                   <p>{example.meaning.english}</p>
                 </>
               );
@@ -122,9 +122,10 @@ const KanjiDetails = () => {
               <img
                 src={kanjiDetails.radical.image}
                 alt=""
-                style={{ width: "50px" }}
+                style={{ width: "30px" }}
+                className="mb-2"
               />
-              <p>{kanjiDetails.radical.name.hiragana}</p>
+              <p className="mb-0">{kanjiDetails.radical.name.hiragana}</p>
               <p>{kanjiDetails.radical.meaning.english}</p>
             </>
           ) : (

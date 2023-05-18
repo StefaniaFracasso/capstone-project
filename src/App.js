@@ -8,7 +8,7 @@ import SingleArticle from './components/Blog/SingleArticle';
 import LearningPage from './components/Learning/LearningPage';
 import SearchResults from './components/Search/SearchResults';
 import KanjiDetails from './components/Learning/KanjiDetails';
-import Favorites from './components/Learning/Favorites';
+import Review from './components/Learning/Review';
 
 
 const getArticleIdFromGuid = (guid) => {
@@ -28,7 +28,7 @@ function App() {
         <Route path='/learnjapanese/:grade' element={<LearningPage/>}/>
         <Route path='/results/:query' element={<SearchResults/>}/>
         <Route path='/kanji/:kanjiChar' element={<KanjiDetails/>}/>
-        <Route path='/favorites' element={<Favorites/>}/>
+        <Route path='/review' element={<Review/>}/>
       </Routes>
       <Footer/>
     </div>

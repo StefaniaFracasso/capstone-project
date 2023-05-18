@@ -1,18 +1,18 @@
 const initialState = {
-    favorites: []
+    kanjiToBeReviewed: []
   }
   
   const mainReducer = (state = initialState, action) => {
     switch (action.type) {
-      case 'ADD_FAVORITE':
+      case 'ADD_REVIEW':
         return {
           ...state,
-          favorites: [...state.favorites, action.payload]
+          kanjiToBeReviewed: [...state.kanjiToBeReviewed, action.payload]
         }
-      case 'REMOVE_FAVORITE':
+      case 'REMOVE_REVIEW':
         return {
           ...state,
-          favorites: state.favorites.filter((kanji) => kanji._id !== action.payload),
+          kanjiToBeReviewed: state.kanjiToBeReviewed.filter((kanji) => kanji._id !== action.payload),
         }
       default:
         return state

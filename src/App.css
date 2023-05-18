@@ -129,6 +129,16 @@ a {
   height: 500px;
 }
 
+.cardIcon {
+  font-size: 30px;
+  color:#2b5c62
+}
+
+.cardIcon:hover {
+  color: #f29e7d;
+  transform: scale(1.2);
+}
+
 /* sidebar */
 
 .sidebar-menu-header h2 {
@@ -224,4 +234,14 @@ text-align: center;
 .learningContainer {
   height: 100vh;
   
+}
+
+.iconaCheck {
+  font-size: 30px;
+  color:#edb544;
+  cursor: pointer;
+}
+
+.iconaCheck:hover {
+  color: #2b5c62;
 }
