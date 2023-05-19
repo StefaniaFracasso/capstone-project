@@ -44,7 +44,7 @@ const BlogSection = () => {
       <Row>
         {articles.slice(0, 3).map((article) => (
           <Col md={4} className="mb-4" key={article.guid}>
-            <Card className="h-100">
+            <Card className="h-100 shadow">
               <Card.Img
                 variant="top"
                 src={article.enclosure.link}
