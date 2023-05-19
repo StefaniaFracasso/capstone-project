@@ -10,7 +10,6 @@ import SearchResults from './components/Search/SearchResults';
 import KanjiDetails from './components/Learning/KanjiDetails';
 import Review from './components/Learning/Review';
 
-
 const getArticleIdFromGuid = (guid) => {
   const startIndex = guid.lastIndexOf("=") + 1;
   return guid.substring(startIndex);

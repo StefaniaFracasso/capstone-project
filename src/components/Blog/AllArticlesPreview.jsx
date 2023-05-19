@@ -44,7 +44,7 @@ const AllArticlesPreview = () => {
       <Row>
         {articles.map((article, index) => (
           <Col md={4} className="mb-4" key={getArticleId(article.guid)}>
-            <Card className="h-100">
+            <Card className="h-100 shadow">
               <Card.Img
                 variant="top"
                 src={article.enclosure.link}
@@ -61,7 +61,7 @@ const AllArticlesPreview = () => {
               <Card.Footer className="text-center">
                 <Link
                   to={`/blog/${getArticleId(article.guid)}`}
-                  className="greenButton rounded-pill fw-bold"
+                  className="greenButton rounded-pill fw-bold shadow"
                 >
                   Read more
                 </Link>

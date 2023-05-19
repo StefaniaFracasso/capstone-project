@@ -56,7 +56,7 @@ const SingleArticle = ({ getArticleId }) => {
         />
       </Container>
       <Container className="text-center">
-        <Link to={`/blog`} className="greenButton rounded-pill fw-bold">
+        <Link to={`/blog`} className="greenButton rounded-pill fw-bold shadow">
           Back to Blog
         </Link>
       </Container>

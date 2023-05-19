@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
 import { useDispatch, useSelector } from "react-redux";
 import { SpinnerDotted } from "spinners-react";
-// import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const FlashCard = ({ selectedGrade }) => {
   const API_KEY = "28ff1f0abfmshb76c2038e44651cp10501djsn60f00a062f0b";
@@ -15,14 +14,10 @@ const FlashCard = ({ selectedGrade }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [cardsToRender, setCardsToRender] = useState([]);
   const [filteredKanjiData, setFilteredKanjiData] = useState([]);
-  const [finish, setFinish] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const currentKanji = cardsToRender[currentCardIndex];
-  // const kanjiToBeReviewed = useSelector((state) => state.kanjiToBeReviewed);
-
-  // const iconStyle = {
-  //   fontSize: "20px",
-  // };
+  const kanjiToBeReviewed = useSelector((state) => state.kanjiToBeReviewed);
 
   // gestisce flip della card
   const handleFlip = (e) => {
@@ -40,31 +35,23 @@ const FlashCard = ({ selectedGrade }) => {
     setCurrentCardIndex(currentCardIndex - 1);
   };
 
+  // apre modale risultati
   const handleFinishClick = () => {
-    setFinish(true);
+    setShowModal(true);
+  };
+
+  // chiude modale
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   // gestisce click su "don't know" per salvare i kanji da rivedere
   const handleClickReview = () => {
     dispatch({
       type: "ADD_REVIEW",
-        payload: currentKanji,
-    })}
-
-
-  //   if (clicked) {
-  //     dispatch({
-  //       type: "REMOVE_REVIEW",
-  //       payload: currentKanji._id,
-  //     });
-  //   } else {
-  //     dispatch({
-  //       type: "ADD_REVIEW",
-  //       payload: currentKanji,
-  //     });
-  //   }
-  //   setClicked(!clicked);
-  // };
+      payload: currentKanji,
+    });
+  };
 
   // fetch per recupero dati
   const getKanjiData = async () => {
@@ -106,17 +93,6 @@ const FlashCard = ({ selectedGrade }) => {
     }
   }, [filteredKanjiData]);
 
-  // useEffect(() => {
-  //   setClicked(false);
-  //   if (favorites.length > 0 && currentKanji) {
-  //     if (
-  //       favorites.filter((kanji) => kanji._id === currentKanji._id).length > 0
-  //     ) {
-  //       setClicked(true);
-  //     }
-  //   }
-  // }, [currentCardIndex]);
-
   if (!kanjiData) {
     return (
       <div className="text-center mt-4 learningContainer">
@@ -131,15 +107,28 @@ const FlashCard = ({ selectedGrade }) => {
     );
   }
 
-  if (finish) {
-    return <h2>Continue</h2>;
-  }
-
   return (
     <Container
       fluid
       className="d-flex flex-column align-content-center align-items-center mt-5 learningContainer"
     >
+      {showModal && (
+        <Modal show={showModal} onHide={() => {handleCloseModal()}}>
+          <Modal.Header closeButton>
+            <Modal.Title>Level {selectedGrade} completed!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>These are the kanji you don't know:</p>
+            {kanjiToBeReviewed.map((kanji) => (
+              <p key={kanji._id}>{kanji.kanji.character}</p>
+            ))}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={handleCloseModal} className="greenButton">Close</Button>
+            <Button href="/review" className="yellowButton">Go to Review</Button>
+          </Modal.Footer>
+        </Modal>
+      )}
       <Row>
         <Col className="d-flex align-items-center">
           {currentCardIndex > 0 ? (
@@ -164,9 +153,10 @@ const FlashCard = ({ selectedGrade }) => {
                     <Card
                       key={kanji._id}
                       style={{ width: "250px", height: "300px" }}
+                      className="shadow"
                     >
                       <Card.Header className="h6">
-                        Level {kanji.grade}{" "}
+                        Level {kanji.grade}
                       </Card.Header>
                       <Card.Body>
                         <Container>
@@ -192,17 +182,6 @@ const FlashCard = ({ selectedGrade }) => {
                               </h6>
                             </Col>
                           </Row>
-                          <Row>
-                            <Col>
-                              {/* <div onClick={handleClick}>
-                                {clicked ? (
-                                  <AiFillHeart style={iconStyle} color="red" />
-                                ) : (
-                                  <AiOutlineHeart style={iconStyle} />
-                                )}
-                              </div> */}
-                            </Col>
-                          </Row>
                         </Container>
                       </Card.Body>
                     </Card>
@@ -213,7 +192,7 @@ const FlashCard = ({ selectedGrade }) => {
                       onClick={handleFlip}
                     >
                       <Card.Header className="h6">
-                        Level {kanji.grade}{" "}
+                        Level {kanji.grade}
                       </Card.Header>
                       <Card.Body>
                         <Row className="d-flex flex-column justify-content-center align-content-center">
@@ -231,10 +210,9 @@ const FlashCard = ({ selectedGrade }) => {
             })}
           <Col xs={12} className="mt-4 d-flex justify-content-around">
             <span>
-              <Button className="yellowButton" onClick={handleClickReview}>Don't know</Button>
-            </span>
-            <span>
-              <Button className="yellowButton">Know</Button>
+              <Button className="yellowButton shadow" onClick={handleClickReview}>
+                Don't know ({kanjiToBeReviewed.length})
+              </Button>
             </span>
           </Col>
         </Col>

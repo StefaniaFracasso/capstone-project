@@ -33,6 +33,8 @@ const KanjiDetails = () => {
     getSingleKanjiDetails();
   }, [kanjiChar]);
 
+
+
   if (!kanjiDetails) {
     return (
       <div>
@@ -58,13 +60,13 @@ const KanjiDetails = () => {
           lg={4}
           className="p-1"
         >
-          <div className="detailsSmallContainer h-100 d-flex flex-column align-items-center">
+          <div className="detailsSmallContainer h-100 d-flex flex-column align-items-center shadow">
           <p className="display-1">{kanjiDetails?.ka_utf}</p>
           <ReactPlayer url={kanjiDetails.kanji?.video?.mp4} width={"120px"} height={"120px"}playing={"true"} loop={"true"}/>
           </div>
         </Col>
         <Col xs={12} md={4} lg={4} className="p-1">
-          <div className="detailsSmallContainer h-100 px-2">
+          <div className="detailsSmallContainer h-100 px-2 shadow">
           <h5 className="fw-bold">Grade</h5>
           <p>{kanjiDetails?.grade}</p>
           <h5 className="fw-bold">Meaning</h5>
@@ -76,7 +78,7 @@ const KanjiDetails = () => {
           </div>
         </Col>
         <Col xs={12} md={4} lg={4} className="p-1">
-        <div className="detailsSmallContainer h-100 px-2">
+        <div className="detailsSmallContainer h-100 px-2 shadow">
           
 
           <h5 className="fw-bold">Examples</h5>
@@ -97,7 +99,7 @@ const KanjiDetails = () => {
       </Row>
       <Row className="d-flex justify-content-around">
         <Col xs={12} md={6} className="p-1">
-          <div className="detailsSmallContainer h-100 px-2">
+          <div className="detailsSmallContainer h-100 px-2 shadow">
           
           <h5 className="fw-bold">Strokes order</h5>
           {kanjiDetails.kanji?.strokes?.images ? (
@@ -114,7 +116,7 @@ const KanjiDetails = () => {
           </div>
         </Col>
         <Col xs={12} md={6} className="p-1">
-        <div className="detailsSmallContainer h-100 px-2">
+        <div className="detailsSmallContainer h-100 px-2 shadow">
 
           <h5 className="fw-bold">Radical</h5>
           {kanjiDetails.radical && kanjiDetails.radical.image ? (
@@ -134,7 +136,6 @@ const KanjiDetails = () => {
           </div>
         </Col>
       </Row>
-        
         </Col>
         <Col xs={1} md={2}></Col>
       </Row>

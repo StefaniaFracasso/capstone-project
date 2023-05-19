@@ -63,7 +63,7 @@ const BlogSection = () => {
         ))}
         <Link
           to={"/blog"}
-          className="greenButton rounded-pill fw-bold mt-3"
+          className="greenButton rounded-pill fw-bold mt-3 shadow"
         >
           Read all the news
         </Link>

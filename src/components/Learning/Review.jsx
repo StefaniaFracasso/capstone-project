@@ -17,7 +17,7 @@ const Review = () => {
   };
 
   return (
-    <Container>
+    <Container className="reviewContainer">
       <h2 className="text-center my-3">Review time!</h2>
       <h5 className="text-center my-3">
         Here you can find all the kanji that you saved during learning with the
@@ -26,7 +26,7 @@ const Review = () => {
       <Row className="d-flex mb-5">
         <Col xs={1} md={4}></Col>
         <Col xs={10} md={4}>
-          <ListGroup as="ol" numbered className="mt-3">
+          <ListGroup as="ol" numbered className="mt-3 shadow">
             {savedKanji.length > 0 && savedKanji ? (
               savedKanji.map((kanji) => {
                 return (
@@ -49,8 +49,8 @@ const Review = () => {
               style={{ display: 'block', position: 'initial' }}
             >
               <Modal.Dialog>
-                <Modal.Header closeButton>
-                  <Modal.Title>Review</Modal.Title>
+                <Modal.Header>
+                  <Modal.Title><i className="bi bi-exclamation-triangle-fill alertIcon" ></i></Modal.Title>
                 </Modal.Header>
         
                 <Modal.Body>
@@ -67,9 +67,6 @@ const Review = () => {
                 </Modal.Footer>
               </Modal.Dialog>
             </div>
-              // <div className="text-center">
-              //   <h4><em>It seems you have nothing left to review!</em></h4>
-              // </div>
             )}
           </ListGroup>
         </Col>

@@ -10,6 +10,9 @@ body {
 
 .App {
   background-color: #edece3;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1,
@@ -80,7 +83,7 @@ a {
 .greenButton {
   background-color: #2b5c62 !important;
   border: none !important;
-  width: 250px !important;
+  max-width: 250px !important;
   padding: 0.5em 1em;
   text-align: center;
   margin: 0 auto;
@@ -95,6 +98,8 @@ a {
 .footer {
   background-color: #2b5c62;
   width: 100%;
+  position: relative;
+  bottom: 0;
 }
 
 .socialIcons {
@@ -183,7 +188,7 @@ a {
 
 .searchResultsContainer {
   height: 100vh;
-text-align: center;
+  text-align: center;
 }
 
 #foundKanji, #savedKanji {
@@ -233,7 +238,6 @@ text-align: center;
 
 .learningContainer {
   height: 100vh;
-  
 }
 
 .iconaCheck {
@@ -244,4 +248,17 @@ text-align: center;
 
 .iconaCheck:hover {
   color: #2b5c62;
+}
+
+.reviewContainer {
+  height: 100vh;
+}
+
+.alertIcon {
+  color: #edb544;
+  font-size: 30px;
+}
+
+.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
