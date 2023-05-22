@@ -110,7 +110,7 @@ const FlashCard = ({ selectedGrade }) => {
   return (
     <Container
       fluid
-      className="d-flex flex-column align-content-center align-items-center mt-5 learningContainer"
+      className="d-flex flex-column align-content-center align-items-center mt-4 learningContainer"
     >
       {showModal && (
         <Modal show={showModal} onHide={() => {handleCloseModal()}}>
@@ -119,9 +119,14 @@ const FlashCard = ({ selectedGrade }) => {
           </Modal.Header>
           <Modal.Body>
             <p>These are the kanji you don't know:</p>
+            <Row className="d-flex">
             {kanjiToBeReviewed.map((kanji) => (
-              <p key={kanji._id}>{kanji.kanji.character}</p>
-            ))}
+              <Col>
+              <h4 key={kanji._id}>{kanji.kanji.character}</h4>
+              </Col>
+            ))
+          }
+          </Row>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={handleCloseModal} className="greenButton">Close</Button>
@@ -130,7 +135,7 @@ const FlashCard = ({ selectedGrade }) => {
         </Modal>
       )}
       <Row>
-        <Col className="d-flex align-items-center">
+        <Col className="d-flex align-items-center p-0">
           {currentCardIndex > 0 ? (
             <i
               className="bi bi-arrow-left-circle cardIcon"
@@ -216,7 +221,7 @@ const FlashCard = ({ selectedGrade }) => {
             </span>
           </Col>
         </Col>
-        <Col className="d-flex align-items-center">
+        <Col className="d-flex align-items-center p-0">
           <i
             className="bi bi-arrow-right-circle cardIcon"
             onClick={
