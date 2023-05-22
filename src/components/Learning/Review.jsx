@@ -1,4 +1,4 @@
-import { Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
@@ -26,7 +26,7 @@ const Review = () => {
       <Row className="d-flex mb-5">
         <Col xs={1} md={4}></Col>
         <Col xs={10} md={4}>
-          <ListGroup as="ol" numbered className="mt-3">
+          <ListGroup as="ol" numbered className="mt-3 shadow">
             {savedKanji.length > 0 && savedKanji ? (
               savedKanji.map((kanji) => {
                 return (
@@ -82,7 +82,7 @@ const Review = () => {
         <Col xs={1} md={4}></Col>
       </Row>
       <div className="d-flex justify-content-center mx-xs-none mx-md-5">
-        <p className="mt-3">
+        <p className="mt-3 functionCard p-4">
           Review kanji that still need more study to memorize! <br /> If
           you click on the kanji you will see its details, including examples
           and order of strokes. <br />

@@ -262,3 +262,11 @@ a {
 .shadow {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.functionCard {
+  background: rgba( 255, 255, 255, 0.2 );
+  box-shadow: 0 6px 10px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+}

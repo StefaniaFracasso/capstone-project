@@ -8,10 +8,10 @@ const LearningPage = () => {
   return (
     <Container>
       <Row className="d-flex flex-column">
-        <Col>
+        <Col className="mb-3">
           <FlashCard selectedGrade={grade} />
         </Col>
-        <Col className="pt-3 px-xs-none px-md-5">
+        <Col xs={12} md={8} className=" d-flex mx-auto pt-3 functionCard mb-3">
           <p>
             Here you can study the kanji of your chosen level. By clicking on
             the card you can see the translation of the selected kanji. If you
