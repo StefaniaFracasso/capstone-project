@@ -11,7 +11,7 @@ const LearningPage = () => {
         <Col className="mb-3">
           <FlashCard selectedGrade={grade} />
         </Col>
-        <Col xs={12} md={8} className=" d-flex mx-auto pt-3 functionCard mb-3">
+        <Col xs={12} md={8} className=" d-flex mx-auto my-3 pt-3 functionCard">
           <p>
             Here you can study the kanji of your chosen level. By clicking on
             the card you can see the translation of the selected kanji. If you

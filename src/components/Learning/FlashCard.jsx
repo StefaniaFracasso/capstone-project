@@ -232,6 +232,7 @@ const FlashCard = ({ selectedGrade }) => {
           ></i>
         </Col>
       </Row>
+
     </Container>
   );
 };

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useSelector } from "react-redux";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
 const CustomNavbar = ({ gradeSelect }) => {
   const [query, setQuery] = useState("");
@@ -34,7 +36,7 @@ const CustomNavbar = ({ gradeSelect }) => {
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto px-2">
+          <Nav className="ms-auto px-2 navbarMobile">
             <Form className="d-flex" onSubmit={handleSubmit}>
               <Form.Control
                 type="search"
@@ -44,7 +46,10 @@ const CustomNavbar = ({ gradeSelect }) => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Link onClick={handleSubmit} className="btn btn-outline-warning">
+              <Link
+                onClick={handleSubmit}
+                className="yellowButton rounded-pill"
+              >
                 Search
               </Link>
             </Form>
@@ -61,12 +66,9 @@ const CustomNavbar = ({ gradeSelect }) => {
             ) : null}
           </Nav>
           {/* <Link to={'/learnjapanese'} type="button" className="yellowButton rounded-pill">Start Learning</Link> */}
-          <DropdownButton
-            id="dropdown-item-button"
-            title="Start learning"
-            className="rounded-pill"
-            variant="warning"
-          >
+          <Dropdown>
+            <DropdownToggle className="yellowButton rounded-pill" >Start learning</DropdownToggle>
+            <DropdownMenu>
             <Dropdown.Header>
               <em>Choose a level</em>
             </Dropdown.Header>
@@ -85,7 +87,8 @@ const CustomNavbar = ({ gradeSelect }) => {
             <Dropdown.Item as="button" onClick={() => handleGradeClick(5)}>
               Advanced level
             </Dropdown.Item>
-          </DropdownButton>
+            </DropdownMenu>
+          </Dropdown>
         </Navbar.Collapse>
       </Container>
     </Navbar>
