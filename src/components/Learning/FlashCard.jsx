@@ -50,7 +50,7 @@ const FlashCard = ({ selectedGrade }) => {
     const isDuplicate = kanjiToBeReviewed.find(
       (kanji) => kanji._id === currentKanji._id
     );
-  
+
     if (!isDuplicate) {
       dispatch({
         type: "ADD_REVIEW",
@@ -119,24 +119,46 @@ const FlashCard = ({ selectedGrade }) => {
       className="d-flex flex-column align-content-center align-items-center mt-4 learningContainer"
     >
       {showModal && (
-        <Modal show={showModal} onHide={() => {handleCloseModal()}}>
+        <Modal
+          show={showModal}
+          onHide={() => {
+            handleCloseModal();
+          }}
+        >
           <Modal.Header closeButton>
             <Modal.Title>Level {selectedGrade} completed!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>These are the kanji you don't know:</p>
-            <Row className="d-flex">
-            {kanjiToBeReviewed.map((kanji) => (
-              <Col>
-              <h4 key={kanji._id}>{kanji.kanji.character}</h4>
-              </Col>
-            ))
-          }
-          </Row>
+            {kanjiToBeReviewed.length > 0 && kanjiToBeReviewed ? (
+              <>
+                <p>These are the kanji you don't know:</p>
+                <Row className="d-flex">
+                  {kanjiToBeReviewed.map((kanji) => (
+                    <Col>
+                      <h4 key={kanji._id}>{kanji.kanji.character}</h4>
+                    </Col>
+                  ))}
+                </Row>
+              </>
+            ) : (
+              <p>
+                Congratulations! You already know all the kanji for this level.
+              </p>
+            )}
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={handleCloseModal} className="greenButton">Close</Button>
-            <Button href="/review" className="yellowButton">Go to Review</Button>
+            <Button onClick={handleCloseModal} className="greenButton">
+              Close
+            </Button>
+            {kanjiToBeReviewed.length > 0 && kanjiToBeReviewed? (
+            <Button href="/review" className="yellowButton">
+              Go to Review
+            </Button>
+            ): 
+            <Button href="/" className="yellowButton">
+            Back to Homepage
+          </Button>
+            }
           </Modal.Footer>
         </Modal>
       )}
@@ -220,7 +242,10 @@ const FlashCard = ({ selectedGrade }) => {
             })}
           <Col xs={12} className="mt-4 d-flex justify-content-around">
             <span>
-              <Button className="yellowButton shadow" onClick={handleClickReview}>
+              <Button
+                className="yellowButton shadow"
+                onClick={handleClickReview}
+              >
                 Don't know ({kanjiToBeReviewed.length})
               </Button>
             </span>
@@ -237,7 +262,6 @@ const FlashCard = ({ selectedGrade }) => {
           ></i>
         </Col>
       </Row>
-
     </Container>
   );
 };
