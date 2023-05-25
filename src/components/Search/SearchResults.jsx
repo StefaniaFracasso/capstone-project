@@ -9,7 +9,7 @@ const SearchResults = () => {
   const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
-    const SEARCH_URL = `https://kanjialive-api.p.rapidapi.com/api/public/search/${query}`;
+    const SEARCH_URL = `https://kanjialive-api.p.rapidapi.com/api/public/search/` + query.toLowerCase();
     const API_KEY = "28ff1f0abfmshb76c2038e44651cp10501djsn60f00a062f0b";
 
     const fetchData = async () => {
