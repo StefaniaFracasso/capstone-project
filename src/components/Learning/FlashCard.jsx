@@ -84,6 +84,7 @@ const FlashCard = ({ selectedGrade }) => {
   useEffect(() => {
     if (kanjiData) {
       const filteredData = kanjiData.filter(
+        // eslint-disable-next-line eqeqeq
         (kanji) => kanji.grade == selectedGrade
       );
       setFilteredKanjiData(filteredData);

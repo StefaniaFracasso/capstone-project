@@ -31,6 +31,7 @@ const SingleArticle = ({ getArticleId }) => {
 
   useEffect(() => {
     fetchArticle(articleId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [articleId]);
 
   if (!article) {

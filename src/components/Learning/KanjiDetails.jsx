@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
+import { useParams, Link, useLocation} from "react-router-dom";
 import { SpinnerDotted } from "spinners-react";
 import ReactPlayer from "react-player";
 
@@ -32,6 +32,7 @@ const KanjiDetails = () => {
 
   useEffect(() => {
     getSingleKanjiDetails();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [kanjiChar]);
 
   if (!kanjiDetails) {
