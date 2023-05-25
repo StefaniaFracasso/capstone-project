@@ -42,7 +42,7 @@ const AppDescription = () => {
                 src="/assets/levels.gif"
                 alt="levels"
                 className=" d-none d-md-block img-fluid"
-                style={{ width: "100%" }}
+                style={{ width: "70%" }}
               />
             </Col>
             <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
