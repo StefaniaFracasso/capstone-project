@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import { useSelector } from "react-redux";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
@@ -65,9 +64,8 @@ const CustomNavbar = ({ gradeSelect }) => {
               </Link>
             ) : null}
           </Nav>
-          {/* <Link to={'/learnjapanese'} type="button" className="yellowButton rounded-pill">Start Learning</Link> */}
           <Dropdown>
-            <DropdownToggle className="yellowButton rounded-pill" >Start learning</DropdownToggle>
+            <DropdownToggle className="yellowButton rounded-pill py-2" >Start learning</DropdownToggle>
             <DropdownMenu>
             <Dropdown.Header>
               <em>Choose a level</em>

@@ -34,7 +34,7 @@ const BlogSection = () => {
   };
 
   return (
-    <Container className="bgColor my-4 pt-5">
+    <Container className="bgColor my-4 pt-3">
       <h2 className="text-center">News from all around Japan</h2>
       <h5 className="text-center mb-5">
         <em>

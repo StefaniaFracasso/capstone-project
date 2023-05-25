@@ -8,7 +8,7 @@ const LearningPage = () => {
   return (
     <Container>
       <Row className="d-flex flex-column">
-        <Col className="mb-3">
+        <Col className="mb-3 flex-grow-1">
           <FlashCard selectedGrade={grade} />
         </Col>
         <Col xs={12} md={8} className=" d-flex mx-auto my-3 pt-3 functionCard">

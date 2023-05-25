@@ -16,14 +16,6 @@ const Jumbotron = () => {
                 />
                 take your japanese <br /> to the next level
               </h1>
-              {/* <Button
-                variant="primary"
-                size="lg"
-                type="button"
-                className="yellowButton rounded-pill fw-bold mt-3"
-              >
-                Start Learning
-              </Button> */}
             </div>
             <Col md={4} className="bg-pattern d-none d-md-block"></Col>
           </div>
@@ -34,3 +26,4 @@ const Jumbotron = () => {
 };
 
 export default Jumbotron;
+

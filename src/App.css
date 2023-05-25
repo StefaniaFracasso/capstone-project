@@ -15,6 +15,10 @@ body {
   min-height: 100vh;
 }
 
+.App-main {
+  flex-grow: 1;
+}
+
 h1,
 h2,
 h3,

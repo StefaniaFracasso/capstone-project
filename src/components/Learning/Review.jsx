@@ -1,12 +1,13 @@
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
 const Review = () => {
   const savedKanji = useSelector((state) => state.kanjiToBeReviewed);
   console.log("prova", savedKanji);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleReviewDoneClick = (kanjiId) => {
     console.log("Clicked on kanji with ID:", kanjiId);
@@ -39,6 +40,7 @@ const Review = () => {
                   >
                     <Link
                       to={`/kanji/${kanji.kanji.character}`}
+                      state={{ from: location.pathname}}
                       id="savedKanji"
                     >
                       {kanji.kanji.character}
