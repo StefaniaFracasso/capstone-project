@@ -32,12 +32,12 @@ Here the docs: https://app.kanjialive.com/api/docs
 
 ## Screenshots
 
-![Homepage](https://i.postimg.cc/N9GXQQB1/screencapture-localhost-3000-2023-05-25-21-10-23.png)
+![Image](https://i.postimg.cc/N9GXQQB1/screencapture-localhost-3000-2023-05-25-21-10-23.png)
 
-![Blog](https://i.postimg.cc/N9NHMZjZ/screencapture-localhost-3000-blog-2023-05-25-21-10-41.png)
+![Image](https://i.postimg.cc/N9NHMZjZ/screencapture-localhost-3000-blog-2023-05-25-21-10-41.png)
 
-![Learning Page](https://i.postimg.cc/bZbkT6m2/screencapture-localhost-3000-learnjapanese-2-2023-05-25-21-11-01.png)
+![Image](https://i.postimg.cc/bZbkT6m2/screencapture-localhost-3000-learnjapanese-2-2023-05-25-21-11-01.png)
 
-![Kanji details](https://i.postimg.cc/BXjx8ZDp/screencapture-localhost-3000-kanji-2023-05-25-21-11-20.png)
+![Image](https://i.postimg.cc/BXjx8ZDp/screencapture-localhost-3000-kanji-2023-05-25-21-11-20.png)
 
 
