@@ -20,7 +20,7 @@ const AppDescription = () => {
                 way, that is, with visual, numerical or symbolic reminders.
               </p>
               <p className="mb-0">
-                The basic idea behind this method is <strong>the principle ofrepetition</strong>: through a "question
+                The basic idea behind this method is <strong>the principle of repetition</strong>: through a "question
                 and answer" mechanism, your brain strives and applies active
                 memorization. It is a method that involves our self-monitoring
                 processes and the ability to self-correct if we get the answer
@@ -56,7 +56,7 @@ const AppDescription = () => {
               </p>
               <p>
                 And if you need to look up a particular kanji, the
-                <strong>search function</strong> is what you need: you can search by
+                <strong> search function</strong> is what you need: you can search by
                 meaning, reading, or directly by writing in Japanese.
               </p>
             </Col>

@@ -19,6 +19,7 @@ const FlashCard = ({ selectedGrade }) => {
   const currentKanji = cardsToRender[currentCardIndex];
   const kanjiToBeReviewed = useSelector((state) => state.kanjiToBeReviewed);
 
+
   // gestisce flip della card
   const handleFlip = (e) => {
     e.preventDefault();
@@ -74,6 +75,7 @@ const FlashCard = ({ selectedGrade }) => {
       console.error(error);
     }
   };
+
 
   // fa partire fetch
   useEffect(() => {
