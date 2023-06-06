@@ -17,11 +17,13 @@ const Footer = () => {
           <Col xs={12} className="text-center">
             <i className="bi bi-instagram socialIcons"></i>
             <i className="bi bi-facebook socialIcons"></i>
+            <a href="https://www.linkedin.com/in/stefaniafracasso/" target='_blank' rel="noreferrer">
             <i className="bi bi-linkedin socialIcons"></i>
+            </a>
           </Col>
           <hr className="mt-2 text-light"/>
           <Col xs={12} className="text-center mt-1">
-            <p style={{color: "#EDECE3"}}><em>Copyright @PeraPera, Credits to KanjiAlive | {currentYear}</em></p>
+            <p style={{color: "#EDECE3"}}><em>Copyright @StefaniaFracasso, Credits to KanjiAlive | {currentYear}</em></p>
           </Col>
 
         </Row>
